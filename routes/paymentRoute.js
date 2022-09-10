@@ -1,0 +1,118 @@
+const express = require("express");
+
+let router = express.Router();
+
+router.route("/create").post((req, res) => {
+  return res.status(200).json({
+    status: "SUCCESS",
+    data: {
+      id: "payment_644e23cee66d505994d668beceb38572",
+      amount: 19.99,
+      original_amount: 19.99,
+      is_partial: false,
+      currency_code: "INR",
+      country_code: "in",
+      status: "CLO",
+      description: "",
+      merchant_reference_id: "",
+      customer_token: "cus_e2e84af8ad60839c2825838f308b3bbf",
+      payment_method: "card_2ce66ba89954e25a47448b4daa6d2f50",
+      payment_method_data: {
+        id: "card_2ce66ba89954e25a47448b4daa6d2f50",
+        type: "in_amex_credit_card",
+        category: "card",
+        metadata: {
+          merchant_defined: true,
+        },
+        image: "",
+        webhook_url: "",
+        supporting_documentation: "",
+        next_action: "not_applicable",
+        name: "John Doe",
+        last4: "1111",
+        acs_check: "unchecked",
+        cvv_check: "unchecked",
+        bin_details: {
+          type: null,
+          brand: null,
+          level: null,
+          country: null,
+          bin_number: "411111",
+        },
+        expiration_year: "23",
+        expiration_month: "12",
+        fingerprint_token: "ocfp_0267ac7df8b2e9a4fd6fbf45f737913c",
+      },
+      auth_code: null,
+      expiration: 1663360021,
+      captured: true,
+      refunded: false,
+      refunded_amount: 0,
+      receipt_email: "",
+      redirect_url: "",
+      complete_payment_url: "",
+      error_payment_url: "",
+      receipt_number: "",
+      flow_type: "",
+      address: null,
+      statement_descriptor: "N/A",
+      transaction_id: "",
+      created_at: 1662755221,
+      metadata: {},
+      failure_code: "",
+      failure_message: "",
+      paid: true,
+      paid_at: 1662755221,
+      dispute: null,
+      refunds: null,
+      order: null,
+      outcome: null,
+      visual_codes: {},
+      textual_codes: {},
+      instructions: [
+        {
+          name: "instructions",
+          steps: [
+            {
+              step1: "Enter card details.",
+            },
+            {
+              step2: "Goto 3DS page and enter OTP.",
+            },
+            {
+              step3: "Complete payment.",
+            },
+          ],
+        },
+      ],
+      ewallet_id: "ewallet_ea98aaa19969d8159ba2056537912d41",
+      ewallets: [
+        {
+          ewallet_id: "ewallet_ea98aaa19969d8159ba2056537912d41",
+          amount: 19.99,
+          percent: 100,
+          refunded_amount: 0,
+        },
+      ],
+      payment_method_options: {},
+      payment_method_type: "in_amex_credit_card",
+      payment_method_type_category: "card",
+      fx_rate: 1,
+      merchant_requested_currency: null,
+      merchant_requested_amount: null,
+      fixed_side: "",
+      payment_fees: null,
+      invoice: "",
+      escrow: null,
+      group_payment: "",
+      cancel_reason: null,
+      initiation_type: "customer_present",
+      mid: "",
+      next_action: "not_applicable",
+      error_code: "",
+      remitter_information: {},
+    },
+  });
+});
+
+module.exports = router;
