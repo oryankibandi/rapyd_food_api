@@ -59,7 +59,7 @@ const registerUser = async (req, res) => {
   if (existing_email || existing_phone) {
     return res.status(400).json({
       status: "ERROR",
-      message: "user already exists",
+      message: "email or phone number already exists",
     });
   }
 
@@ -170,7 +170,7 @@ const logInUser = async (req, res) => {
   };
 
   const accessToken = jwt.sign(tokenPayload, process.env.ACCESS_TOKEN_SECRET, {
-    expiresIn: "180s",
+    expiresIn: "900s",
   });
   const refreshToken = jwt.sign(
     tokenPayload,
@@ -276,7 +276,7 @@ const refreshToken = async (req, res) => {
   };
 
   const accessToken = jwt.sign(tokenPayload, process.env.ACCESS_TOKEN_SECRET, {
-    expiresIn: "180s",
+    expiresIn: "900s",
   });
 
   return res.status(200).json({

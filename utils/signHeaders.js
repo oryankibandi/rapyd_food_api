@@ -2,7 +2,7 @@ const https = require("https");
 const crypto = require("crypto");
 const secretKey = process.env.SECRET_KEY;
 const accessKey = process.env.ACCESS_KEY;
-const log = true;
+const log = false;
 
 async function makeRequest(method, urlPath, body = null) {
   try {
@@ -28,7 +28,7 @@ async function makeRequest(method, urlPath, body = null) {
         idempotency: idempotency,
       },
     };
-    console.log("options: ", options);
+    // console.log("options: ", options);
 
     return await httpRequest(options, body, log);
   } catch (error) {

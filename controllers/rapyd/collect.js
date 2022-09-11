@@ -36,4 +36,33 @@ const createCustomerWithoutPayment = async ({
   }
 };
 
-module.exports = { createCustomerWithoutPayment };
+const listPaymentMethodByCountry = async (country, currency) => {
+  console.log("country to check: ", country);
+  const path = `/v1/payment_methods/country?country=${country}&currency=${currency}`;
+  console.log("PATH: ", path);
+  try {
+    const result = await makeRequest("GET", path);
+    return result;
+  } catch (error) {
+    console.error("Error completing request:", error);
+    return error;
+  }
+};
+
+const payWithCard = async (payload) => {
+  const path = "/v1/payments";
+
+  try {
+    const result = await makeRequest("POST", path, payload);
+    return result;
+  } catch (error) {
+    console.error("Error completing request:", error);
+    return error;
+  }
+};
+
+module.exports = {
+  createCustomerWithoutPayment,
+  listPaymentMethodByCountry,
+  payWithCard,
+};
