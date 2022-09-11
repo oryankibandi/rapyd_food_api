@@ -4,6 +4,13 @@ const jwt = require("jsonwebtoken");
 const verifyAccessToken = async (req, res, next) => {
   const authHeader = req.headers.authorization || req.headers.Authorization;
 
+  if (!authHeader) {
+    return res.status(400).json({
+      status: "ERROR",
+      message: "`Authorization` header not found not found",
+    });
+  }
+
   if (!authHeader.startsWith("Bearer")) {
     return res.status(400).json({
       status: "ERROR",
