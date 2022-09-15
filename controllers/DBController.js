@@ -63,4 +63,20 @@ const createCustomerInDB = async (customer_details) => {
   }
 };
 
-module.exports = { createNewUserInDB, createNewWalletInDB, createCustomerInDB };
+const searchDocumentInDB = async (searchParameter, searchValue, Model) => {
+  //console.log("In DB controller");
+  let searchObj = {};
+  searchObj[searchParameter] = searchValue;
+  const doc = await Model.findOne(searchObj).exec();
+
+  //console.log("doc:", doc);
+
+  return doc;
+};
+
+module.exports = {
+  createNewUserInDB,
+  createNewWalletInDB,
+  createCustomerInDB,
+  searchDocumentInDB,
+};

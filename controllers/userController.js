@@ -9,6 +9,7 @@ const {
   createNewUserInDB,
   createNewWalletInDB,
   createCustomerInDB,
+  searchDocumentInDB,
 } = require("./DBController");
 const User = require("../models/userDBSchema");
 
@@ -285,4 +286,9 @@ const refreshToken = async (req, res) => {
   });
 };
 
-module.exports = { registerUser, logInUser, logOut, refreshToken };
+module.exports = {
+  registerUser,
+  logInUser,
+  logOut,
+  refreshToken,
+};

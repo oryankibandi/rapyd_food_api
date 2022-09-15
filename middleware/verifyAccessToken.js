@@ -29,7 +29,7 @@ const verifyAccessToken = async (req, res, next) => {
           message: err,
         });
       }
-      console.log("decoded token: ", decoded);
+      //console.log("decoded token: ", decoded);
       (req.first_name = decoded.userData.first_name),
         (req.last_name = decoded.userData.second_name),
         (req.email = decoded.userData.email),

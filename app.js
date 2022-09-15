@@ -10,6 +10,7 @@ const mongoose = require("mongoose");
 const connect = require("./config/connectDB");
 const userRoute = require("./routes/userRoute");
 const paymentsRoute = require("./routes/paymentRoute");
+const profileRoute = require("./routes/profileRoute");
 const verifyToken = require("./middleware/verifyAccessToken");
 const logRequests = require("./middleware/log_requests");
 
@@ -20,11 +21,14 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(cors());
 app.use(logRequests);
+
 //route mapping
 app.use("/user", userRoute);
+//verify token middleware
 app.use(verifyToken);
 
 app.use("/payments", paymentsRoute);
+app.use("/profile", profileRoute);
 
 mongoose.connection.once("open", () => {
   console.log("Connected to DB");
