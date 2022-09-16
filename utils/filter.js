@@ -1,4 +1,4 @@
-const supportedCountriesList = require("../data/supportedCountries");
+const { supportedCountriesList } = require("../data/supportedCountries");
 
 const filterListPaymentMethods = (data) => {
   let filteredData = [];
