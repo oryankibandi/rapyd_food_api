@@ -171,7 +171,7 @@ const logInUser = async (req, res) => {
   };
 
   const accessToken = jwt.sign(tokenPayload, process.env.ACCESS_TOKEN_SECRET, {
-    expiresIn: "900s",
+    expiresIn: "6h",
   });
   const refreshToken = jwt.sign(
     tokenPayload,
@@ -277,7 +277,7 @@ const refreshToken = async (req, res) => {
   };
 
   const accessToken = jwt.sign(tokenPayload, process.env.ACCESS_TOKEN_SECRET, {
-    expiresIn: "900s",
+    expiresIn: "6h",
   });
 
   return res.status(200).json({
