@@ -67,7 +67,7 @@ const registerUser = async (req, res) => {
   //creating a wallet to get wallet_id
   await createWallet({ first_name, last_name, email, phone_number })
     .then((resp) => {
-      console.log("create wallet res: ", resp);
+      //console.log("create wallet res: ", resp);
       if (resp.statusCode != 200) {
         return res.status(resp.statusCode).json(resp.body.status);
       }
@@ -80,10 +80,10 @@ const registerUser = async (req, res) => {
 
   //creating a customer with the acquired walletid.
   if (userDetails.ewallet) {
-    console.log("UserDetails: ", userDetails);
+    //console.log("UserDetails: ", userDetails);
     await createCustomerWithoutPayment(userDetails)
       .then((resp) => {
-        console.log("Create Cus resp: ", resp);
+        //console.log("Create Cus resp: ", resp);
         if (resp.statusCode != 200) {
           return res.status(resp.statusCode).json(resp.body.status);
         }

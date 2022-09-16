@@ -28,7 +28,7 @@ const createCustomerWithoutPayment = async ({
 
   try {
     const result = await makeRequest("POST", "/v1/customers", data);
-    console.log("Customer: ", result);
+    //console.log("Customer: ", result);
     return result;
   } catch (error) {
     console.error("Error completing request", error);
@@ -37,7 +37,7 @@ const createCustomerWithoutPayment = async ({
 };
 
 const listPaymentMethodByCountry = async (country, currency) => {
-  console.log("country to check: ", country);
+  //console.log("country to check: ", country);
   const path = `/v1/payment_methods/country?country=${country}&currency=${currency}`;
   console.log("PATH: ", path);
   try {

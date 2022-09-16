@@ -57,7 +57,7 @@ const createWallet = async (userDetails) => {
   try {
     const result = await makeRequest("POST", "/v1/user", data);
 
-    console.log("Wallet: ", result);
+    //console.log("Wallet: ", result);
     return result;
   } catch (error) {
     console.error("Error completing request", error);
