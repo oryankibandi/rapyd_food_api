@@ -5,15 +5,17 @@ const filterListPaymentMethods = (data) => {
   data.map((item) => {
     let typeList = item.type.split("_").slice(1);
     let type = typeList.join(" ");
-    let filteredItem = {
-      name: item.name,
-      type: item.type,
-      full_name: type,
-      category: item.category,
-      image: item.image,
-    };
+    if (item.category === "card") {
+      let filteredItem = {
+        name: item.name,
+        type: item.type,
+        full_name: type,
+        category: item.category,
+        image: item.image,
+      };
 
-    filteredData.push(filteredItem);
+      filteredData.push(filteredItem);
+    }
   });
 
   return filteredData;
