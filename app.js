@@ -15,6 +15,7 @@ const connect = require("./config/connectDB");
 const userRoute = require("./routes/userRoute");
 const paymentsRoute = require("./routes/paymentRoute");
 const profileRoute = require("./routes/profileRoute");
+const countriesRoute = require("./routes/countriesRoute");
 const verifyToken = require("./middleware/verifyAccessToken");
 const logRequests = require("./middleware/log_requests");
 
@@ -41,6 +42,7 @@ if (cluster.isPrimary) {
   app.use(logRequests);
 
   //route mapping
+  app.use("/countries", countriesRoute);
   app.use("/user", userRoute);
   //verify token middleware
   app.use(verifyToken);

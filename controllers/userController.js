@@ -9,7 +9,6 @@ const {
   createNewUserInDB,
   createNewWalletInDB,
   createCustomerInDB,
-  searchDocumentInDB,
 } = require("./DBController");
 const User = require("../models/userDBSchema");
 

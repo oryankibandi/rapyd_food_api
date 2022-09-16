@@ -61,8 +61,21 @@ const payWithCard = async (payload) => {
   }
 };
 
+const listCountries = async () => {
+  const path = "/v1/data/countries";
+
+  try {
+    const result = await makeRequest("GET", path);
+    return result;
+  } catch (error) {
+    console.error("Error completing request:", error);
+    return error;
+  }
+};
+
 module.exports = {
   createCustomerWithoutPayment,
   listPaymentMethodByCountry,
   payWithCard,
+  listCountries,
 };

@@ -17,4 +17,21 @@ const filterListPaymentMethods = (data) => {
   return filteredData;
 };
 
-module.exports = { filterListPaymentMethods };
+const filterCountries = (countries) => {
+  let filteredCountries = [];
+  countries.forEach((item) => {
+    let newItem = {};
+
+    newItem.country_name = item.name;
+    newItem.country_code = item.iso_alpha2;
+    newItem.currency_name = item.currency_name;
+    newItem.currency_code = item.currency_code;
+    newItem.phone_code = item.phone_code;
+
+    filteredCountries.push(newItem);
+  });
+
+  return filteredCountries;
+};
+
+module.exports = { filterListPaymentMethods, filterCountries };
