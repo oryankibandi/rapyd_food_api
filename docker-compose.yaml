@@ -4,6 +4,14 @@ services:
     container_name: docker-node-mongo
     restart: always
     build: .
+    environment:
+      - BASE_URL="${BASE_URL}"
+      - PORT="${PORT}"
+      - ACCESS_KEY="${ACCESS_KEY}"
+      - SECRET_KEY="${SECRET_KEY}"
+      - DATABASE_URL="${DATABASE_URL}"
+      - ACCESS_TOKEN_SECRET="${ACCESS_TOKEN_SECRET}"
+      - REFRESH_TOKEN_SECRET="${REFRESH_TOKEN_SECRET}"
     ports:
       - '3000:3000'
     links:
